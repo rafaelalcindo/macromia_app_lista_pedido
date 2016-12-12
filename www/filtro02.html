@@ -80,8 +80,8 @@ input[type='radio'] {
 
          $(document).ready(function(){
               //http://localhost:8080/macromia_fase05/app_acesso/filtro_pedido/ident_foto_app.php?email=rafael_alcindo@gmail.com&senha=1234
-              //http://macromia.com.br/testeftp/app_acesso
-              //http://192.168.0.67:8080/macromia_fase06/app_acesso/
+              //http://macromia.com.br/testeftp/app_acesso/historico_pedido
+              //http://192.168.0.67:8080/macromia_fase06/app_acesso/historico_pedido
              var foto_email = $('#foto_email').val();
              var foto_senha = $('#foto_senha').val();
              var foto_ident = $('#foto_ident').val();             
@@ -92,8 +92,8 @@ input[type='radio'] {
              //alert('localStorage email filtro: '+localStorage.getItem("email"));
              //alert('localStorage senha filtro: '+localStorage.getItem("senha"));
 
-            /* localStorage.setItem('email','laiz_lara@gmail.com');
-             localStorage.setItem('senha','1234'); */
+          /*  localStorage.setItem('email_local','rafael_alcindo02@gmail.com');
+             localStorage.setItem('senha_local','1234'); */
               
              var email_foto = localStorage.getItem("email");
              var senha_foto = localStorage.getItem("senha");
@@ -101,11 +101,14 @@ input[type='radio'] {
              $('#u366251').children().remove();
 
              ident_foto_json(email_foto, senha_foto,pagina_inicio); 
+
+                
              
 
              $('#u14351-4').children().remove();
              $('#u14351-4').append('<p id="btn_procurar" style="text-decoration: none; color: #c8c8c8; cursor: pointer; color: white;">BUSCAR</p>');
 
+             
              /* botão sair do App */
 
              $('#u292008-4').removeAttr('href');
@@ -124,15 +127,15 @@ input[type='radio'] {
 
              $('#u484191-4').removeAttr('href');
              $('#u484191-4').children().remove();
-             $('#u484191-4').append('<p>HISTÓRICO</p>');
+             $('#u484191-4').append('<p>PEDIDOS</p>');
              $('#u484191-4').css('cursor','pointer');
-             $('#u484191-4').css('right','26%');
-             /*$('#u484191-4').css('color','#009B82');*/
+             $('#u484191-4').css('right','26%');                          
+            /* $('#u484191-4').css('color','#009B82'); */
              $('#u484191-4').click(function(){
-                window.location = 'filtro02.html';
+                window.location = 'filtro.html';
              });
 
-             
+                          
 
              $.ajax({
                     type: "POST",
@@ -148,7 +151,7 @@ input[type='radio'] {
                 var id = $(this).val();
                 $.ajax({
                     type: "POST",
-                    url: "http://macromia.com.br/testeftp/app_acesso/lista_cidade.php?id=" + id,
+                    url: "http://macromia.com.br/testeftp/app_acesso/lista_cidade02.php?id=" + id,
                     dataType: "text",
                     success: function(res) {
                         $('#cidade').children('.cidades').remove();
@@ -194,11 +197,9 @@ input[type='radio'] {
                   var orcamento  = $("input[name='Orcamento']:checked").val();
                   var ordenar    = $("input[name='Ordem']:checked").val();
 
-                 /* alert('servico: '+servico+' estado: '+estado+' cidade: '+cidade+' id_foto: '+id_foto+' credi_foto: '+credi_foto+' orcamento: '+orcamento+' ordenar: '+ordenar); */
-
                   $.ajax({
                       type: "POST",
-                      url: "http://macromia.com.br/testeftp/app_acesso/filtro_pedido/lista_pedido.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                      url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                       dataType: "text",
                       success: function(res){
                        
@@ -209,7 +210,7 @@ input[type='radio'] {
 
                   $.ajax({
                       type: "POST",
-                      url: "http://macromia.com.br/testeftp/app_acesso/filtro_pedido/lista_pedido02.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                      url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido02.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                       dataType: "text",
                       success: function(res){
                        
@@ -220,7 +221,7 @@ input[type='radio'] {
 
                   $.ajax({
                       type: "POST",
-                      url: "http://macromia.com.br/testeftp/app_acesso/filtro_pedido/lista_pedido03.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                      url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido03.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                       dataType: "text",
                       success: function(res){
                        
@@ -231,7 +232,7 @@ input[type='radio'] {
 
                   $.ajax({
                       type: "POST",
-                      url: "http://macromia.com.br/testeftp/app_acesso/lista_pedido03.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                      url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido03.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                       dataType: "text",
                       success: function(res){
                        
@@ -251,8 +252,8 @@ input[type='radio'] {
 
          function paginacao_pedidos(pg,scroll_permission){
 
-            //  alert('entoru na paginação');
-                verificaConexao();
+                //alert('entrou na paginação');
+                //verificaConexao();
                 var servico    = $('#servico').val();
                 var estado     = $('#estado').val();
                 var cidade     = $('#cidade').val();
@@ -261,14 +262,14 @@ input[type='radio'] {
                 var orcamento  = $("input[name='Orcamento']:checked").val();
                 var ordenar    = $("input[name='Ordem']:checked").val();
 
-               /* alert('servico: '+servico+' estado: '+estado+' cidade: '+cidade+' id_foto: '+id_foto+' credi_foto: '+credi_foto+' orcamento: '+orcamento+' ordenar: '+ordenar); */
+                /*alert('servico: '+servico+' estado: '+estado+' cidade: '+cidade+' id_foto: '+id_foto+' credi_foto: '+credi_foto+' orcamento: '+orcamento+' ordenar: '+ordenar);  */
 
                  $.ajax({
                           type: "POST",
-                          url: "http://macromia.com.br/testeftp/app_acesso/filtro_pedido/lista_pedido.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                          url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                           dataType: "text",
                           success: function(res){
-                            //alert('entoru ajax 1');
+                            //alert(res);
                             $('#u365383').children().remove();
                             $('#u365383').append(res);
                             
@@ -277,10 +278,10 @@ input[type='radio'] {
 
                  $.ajax({
                           type: "POST",
-                          url: "http://macromia.com.br/testeftp/app_acesso/filtro_pedido/lista_pedido02.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                          url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido02.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                           dataType: "text",
                           success: function(res){
-                          // alert('entoru ajax 2');
+                          //alert(res);
                             $('#u365390').children().remove();                 
                             $('#u365390').append(res);
                             
@@ -289,10 +290,10 @@ input[type='radio'] {
 
                  $.ajax({
                           type: "POST",
-                          url: "http://macromia.com.br/testeftp/app_acesso/filtro_pedido/lista_pedido03.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                          url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido03.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                           dataType: "text",
                           success: function(res){
-                           //alert('entoru ajax 3');
+                           //alert(res);
                             $('#u366251').children().remove();
                             $('#u366251').append(res);
                             
@@ -301,10 +302,10 @@ input[type='radio'] {
 
                  $.ajax({
                           type: "POST",
-                          url: "http://macromia.com.br/testeftp/app_acesso/filtro_pedido/lista_pedido04.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
+                          url: "http://macromia.com.br/testeftp/app_acesso/historico_pedido/lista_pedido04.php?sele_servico="+servico+"&estado="+estado+"&cidade="+cidade+"&id_foto="+id_foto+"&credi_foto="+credi_foto+"&pg="+pg+"&Orcamento="+orcamento+"&Ordem="+ordenar,
                           dataType: "text",
                           success: function(res){
-                           //alert('entoru ajax 4');
+                          // alert(res);
                            $('#u367112').children().remove();
                            $('#u367112').append(res);
                            
@@ -395,7 +396,9 @@ input[type='radio'] {
                             alert('O limite para adquirir contatos por dia esgotou');
                           }
                       }
-                  });             
+                  });
+
+                
 
         }
 
@@ -451,11 +454,11 @@ input[type='radio'] {
      <a class="nonblock nontext museBGSize shared_content" id="u56895" href="http://macromia.com.br/index.php" data-content-guid="u56895_content"><!-- simple frame --></a>
     </div>
 
-    
+
+
 
     <div class="browser_width colelem" id="u14008-bw">
      <div id="u14008"><!-- group -->
-
 
      <div id="faixa_titulo" style=" width: 100%; height: 50%; ">
          
@@ -463,7 +466,7 @@ input[type='radio'] {
              <div class="clearfix" id="u14922_align_to_page">
               <!-- m_editable region-id="editable-static-tag-U14785-BP_infinity" template="filtro.html" data-type="html" data-ice-options="disableImageResize,link" -->
               <div class="clearfix grpelem" id="u14785-4" data-muse-uid="U14785" data-muse-type="txt_frame"><!-- content -->
-               <p>LISTA DE PEDIDOS</p>
+               <p>HISTÓRICO DE PEDIDOS</p>
               </div>
               <!-- /m_editable -->
              </div>
@@ -562,7 +565,7 @@ input[type='radio'] {
      <div id="u14533"><!-- group -->
       <div class="clearfix" id="u14533_align_to_page">
        <div class="grpelem" id="u14500"><!-- custom html -->
-        <input type="radio" name="Ordem" value="DESC" checked>
+        <input type="radio" name="Ordem" value="recente" checked>
        </div>
        <!-- m_editable region-id="editable-static-tag-U14499-BP_infinity" template="filtro.html" data-type="html" data-ice-options="disableImageResize,link" -->
        <div class="clearfix grpelem" id="u14499-4" data-muse-uid="U14499" data-muse-type="txt_frame"><!-- content -->
@@ -570,7 +573,7 @@ input[type='radio'] {
        </div>
        <!-- /m_editable -->
        <div class="grpelem" id="u14510"><!-- custom html -->
-        <input type="radio" name="Ordem" value="ASC">
+        <input type="radio" name="Ordem" value="antigo">
        </div>
        <!-- m_editable region-id="editable-static-tag-U14507-BP_infinity" template="filtro.html" data-type="html" data-ice-options="disableImageResize,link" -->
        <div class="clearfix grpelem" id="u14507-4" data-muse-uid="U14507" data-muse-type="txt_frame"><!-- content -->
@@ -649,9 +652,6 @@ input[type='radio'] {
        </div>
       </div>
      </div>
-
-
-
      <div class="browser_width grpelem shared_content" id="u14922-bw" data-content-guid="u14922-bw_content">
       <div id="u14922"><!-- group -->
        <div class="clearfix" id="u14922_align_to_page">
@@ -663,8 +663,6 @@ input[type='radio'] {
        </div>
       </div>
      </div>
-
-
     </div>
     <div class="browser_width colelem" id="u370860-bw">
      <div id="u370860"><!-- column -->
@@ -953,7 +951,6 @@ input[type='radio'] {
   <input type="hidden" value="" id="foto_credito">
   <input type="hidden" value="<?= $val_foto_email ?>" id="foto_email" />     
   <input type="hidden" value="<?= $val_foto_senha ?>" id="foto_senha" />
-
   <input type="hidden" value="<?= $val_foto_ident ?>" id="foto_ident" />
         </div>
         <div class="museBGSize colelem shared_content" id="u37776" data-content-guid="u37776_content"><!-- simple frame --></div>
@@ -972,13 +969,13 @@ input[type='radio'] {
     <div class="browser_width colelem temp_no_id" data-orig-id="u14008-bw">
      <div class="temp_no_id" data-orig-id="u14008"><!-- group -->
 
-      <div id="faixa_titulo" style=" width: 100%; height: 50%; ">
+      <div id="faixa_titulo" style=" width: 100%; height: 50%;">
          
          <div id="u14922" style="background-color: #009B82;"><!-- group -->
              <div class="clearfix" id="u14922_align_to_page">
               <!-- m_editable region-id="editable-static-tag-U14785-BP_infinity" template="filtro.html" data-type="html" data-ice-options="disableImageResize,link" -->
               <div class="clearfix grpelem" id="u14785-4" data-muse-uid="U14785" data-muse-type="txt_frame"><!-- content -->
-               <p>LISTA DE PEDIDOS</p>
+               <p>HISTÓRICO DE PEDIDOS</p>
               </div>
               <!-- /m_editable -->
              </div>
@@ -1309,23 +1306,21 @@ input[type='radio'] {
       <div class="temp_no_id" data-orig-id="u14008"><!-- column -->
 
 
-
-
       <div id="faixa_titulo" style=" width: 100%; height: 50%; margin-top: -1px;">
          
          <div id="u14922" style="background-color: #009B82;"><!-- group -->
              <div class="clearfix" id="u14922_align_to_page">
               <!-- m_editable region-id="editable-static-tag-U14785-BP_infinity" template="filtro.html" data-type="html" data-ice-options="disableImageResize,link" -->
               <div class="clearfix grpelem" id="u14785-4" data-muse-uid="U14785" data-muse-type="txt_frame"><!-- content -->
-               <p>LISTA DE PEDIDOS</p>
+               <p>HISTÓRICO DE PEDIDOS</p>
               </div>
               <!-- /m_editable -->
              </div>
           </div>
        </div>
-       <div class="clearfix temp_no_id" data-orig-id="u14008_align_to_page">
 
-       
+
+       <div class="clearfix temp_no_id" data-orig-id="u14008_align_to_page">
         <div class="clearfix colelem temp_no_id" data-orig-id="pu14035-4"><!-- group -->
          <!-- m_editable region-id="editable-static-tag-U14035-BP_480" template="filtro.html" data-type="html" data-ice-options="disableImageResize,link" -->
          <span class="clearfix grpelem placeholder" data-placeholder-for="u14035-4_content"><!-- placeholder node --></span>
